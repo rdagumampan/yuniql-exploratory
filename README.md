@@ -1,6 +1,27 @@
-# yuniql baseliner
+# yuniqlx baseline
 
-Baseline version automation of your sql server database.
+`yuniqlx baseline` is an experimental feature where we automate the script-generation of primary database objects and place results in `v0.00` of your migration project.  A command flow would look like this:
+
+1. [Download latest `yuniqlx` build here](https://ci.appveyor.com/api/buildjobs/fqmphdr60lamkqvx/artifacts/yuniqlx-nightly.zip)
+2. Setup your local workspace
+
+	```bash
+	yuniql init
+	```
+
+3. Baseline your db
+
+	```bash
+	yuniqlx baseline -c <your-source-database-connection-string> -p <your-v0.00-directory-path>
+	```
+
+4. Run your migration
+
+	```bash
+	yuniql run -c <your-source-database-connection-string> -a
+	```
+
+>NOTE: `yuniqlx` is an experimental feature and released as separate package. Because it's not everyday that we do baseline plus its heavy references to Sql Server SMO, I don't want to make this part of every release.
 
 ```console
 SETX YUNIQLX_BASELINE_CONNECTION_STRING <your-connection-string>
