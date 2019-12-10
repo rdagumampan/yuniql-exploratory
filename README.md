@@ -23,14 +23,7 @@
 
 >NOTE: `yuniqlx` is an experimental feature and released as separate package. Because it's not everyday that we do baseline plus its heavy references to Sql Server SMO, I don't want to make this part of every release.
 
-```console
-SETX YUNIQLX_BASELINE_CONNECTION_STRING <your-connection-string>
-yuniqlx baseline -p "c:\demo\v0.00"
-```
-
-```console
-yuniqlx baseline -p "c:\demo\v0.00" -c <your-connection-string>
-```
+## Building the solution
 
 Publish as self-contained application (win-x64)
 ```console
@@ -42,7 +35,7 @@ Publish as optimized application (linux-x64)
 dotnet publish -c release -r linux-x64 /p:publishtrimmed=true
 ```
 
-#### References
+## References
 
 https://docs.microsoft.com/en-us/sql/linux/tutorial-restore-backup-in-sql-server-container?view=sql-server-ver15
 https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2016.bak
