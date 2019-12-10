@@ -1,0 +1,11 @@
+.vs
+**/.vs
+
+nupkgs
+**/nupkgs
+
+**/bin
+**/obj
+
+**/.user
+**/.pubxml
