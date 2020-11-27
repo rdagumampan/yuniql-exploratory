@@ -2,7 +2,7 @@
 
 `yuniqlx baseline` is an experimental feature where we automate the script-generation of primary database objects and place results in `v0.00` of your migration project.  A command flow would look like this:
 
-1. [Download latest `yuniqlx` build here](https://ci.appveyor.com/api/buildjobs/fqmphdr60lamkqvx/artifacts/yuniqlx-nightly.zip)
+1. [Download latest `yuniqlx` build here](https://github.com/rdagumampan/yuniql-exploratory/releases/tag/latest)
 2. Setup your local workspace
 
 	```bash
