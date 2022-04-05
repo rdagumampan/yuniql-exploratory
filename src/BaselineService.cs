@@ -14,7 +14,7 @@ namespace Yuniql.Extensions
         private List<string> processedUrns = new List<string>();
         public delegate bool FilterDelegate(Urn urn);
 
-        public void Run(string sourceConnectionString, string destinationFullPath)
+        public void Run(string sourceConnectionString, string destinationFullPath, bool IsTableDependencyDisabled)
         {
             var connectionStringBuilder = new SqlConnectionStringBuilder(sourceConnectionString);
 
@@ -47,7 +47,7 @@ namespace Yuniql.Extensions
             GenerateSchemaBasedScriptFiles(sourceConnectionString, scripter, xmlschemasDirectory, xmlschemasUrns);
 
             var tableDirectory = GetOrCreateDestinationDirectory(destinationFullPath, "04-tables");
-            var tableUrns = GetTableUrns(database, scripter);
+            var tableUrns = IsTableDependencyDisabled ? GetGenericUrns(database.Tables) : GetTableUrns(database, scripter);
             GenerateSchemaBasedScriptFiles(sourceConnectionString, scripter, tableDirectory, tableUrns);
 
             var viewDirectory = GetOrCreateDestinationDirectory(destinationFullPath, "05-views");

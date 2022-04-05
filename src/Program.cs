@@ -35,7 +35,7 @@ namespace Yuniql.Extensions
                 }
 
                 var baselineService = new BaselineService();
-                baselineService.Run(opts.ConnectionString, opts.Path);
+                baselineService.Run(opts.ConnectionString, opts.Path, opts.IsTableDependencyDisabled);
 
                 TraceService.Info($"Initialized {opts.Path}.");
             }
@@ -64,5 +64,10 @@ namespace Yuniql.Extensions
         //yuniqlx baseline -d | --debug
         [Option('d', "debug", Required = false, HelpText = "Print debug information including all raw scripts")]
         public bool Debug { get; set; }
+
+        //yuniqlx baseline -n | --no-dependencies
+        [Option('n', "no-dependencies", Required = false, HelpText = "Do not recursively fetch definitions of dependent objects")]
+        public bool IsTableDependencyDisabled { get; set; }
+
     }
 }
